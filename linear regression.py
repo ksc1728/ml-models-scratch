@@ -26,7 +26,7 @@ class LinearRegression:
     def __init__(self,learning_rate=0.01,epochs=1000):
         self.learning_rate=learning_rate
         self.epochs=epochs
-        self.weights=None # Corrected name from 'weight' for consistency
+        self.weights=None 
         self.bias=None
     
     def fit(self,X,y):
@@ -40,8 +40,8 @@ class LinearRegression:
             
             # Gradient descent
             # Gradient of Cost J(w,b) w.r.t weights (dw) and bias (db)
-            dw=(1/m)*np.dot(X.T,(y_pred - y)) # Changed sign for error (y_pred - y)
-            db=(1/m)*np.sum(y_pred - y)     # Changed sign for error (y_pred - y)
+            dw=(1/m)*np.dot(X.T,(y_pred - y))
+            db=(1/m)*np.sum(y_pred - y)
             
             # Update parameters
             self.weights-=self.learning_rate*dw
@@ -56,9 +56,9 @@ np.random.seed(42)
 # X is (100, 5) - 100 samples, 5 features
 X = np.random.rand(100, 5) 
 # y is (100,) - 100 targets
-y = 2 * X[:, 0] + 0.5 * X[:, 1] + 0.1 * np.random.randn(100) # Generating a slightly better correlated y
+y = 2 * X[:, 0] + 0.5 * X[:, 1] + 0.1 * np.random.randn(100) 
 
-lr=LinearRegression(learning_rate=0.1, epochs=5000) # Increased learning rate and epochs for better convergence
+lr=LinearRegression(learning_rate=0.1, epochs=5000) 
 lr.fit(X,y)
 y_pred=lr.predict(X)
 
